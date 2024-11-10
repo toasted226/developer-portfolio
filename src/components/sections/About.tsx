@@ -1,4 +1,8 @@
-import { Component } from "solid-js";
+import { Component, ComponentProps } from "solid-js";
+import { Translate } from "../icons/Translate";
+import Music from "../icons/Music";
+import CommandLine from "../icons/CommandLine";
+import Keyboard from "../icons/Keyboard";
 
 export default function About() {
 	return (
@@ -10,6 +14,10 @@ export default function About() {
 						<p class="w-96">Lorem ipsum odor amet, consectetuer adipiscing elit. Vehicula sit porta primis penatibus risus sed, semper scelerisque odio. Mauris taciti primis torquent porttitor tincidunt a.</p>
 					</div>
 					<div>
+						<Hobby svg={Translate} name="Languages" />
+						<Hobby svg={Music} name="Music" />
+						<Hobby svg={CommandLine} name="Programming" />
+						<Hobby svg={Keyboard} size="w-6" name="Keyboards" />
 					</div>
 				</div>
 			</section>
@@ -17,12 +25,16 @@ export default function About() {
 	);
 }
 
-const Hobby: Component<{svg: Component, name: string}> = (props) => {
+const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, name: string}> = (props) => {
+	const { svg: Icon } = props;
+
 	return (
 		<div class="flex flex-col items-center gap-2 w-fit">
-			<div>
+			<div class="h-14 w-14 border-white border-2 border-solid rounded-full flex justify-center items-center">
+				<Icon class={props.size} />
 			</div>
-			<p>{props.name}</p>
+			<p class="text-sm">{props.name}</p>
 		</div>
 	);
 }
+
