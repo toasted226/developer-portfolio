@@ -2,7 +2,7 @@ import Nav from "../Nav";
 
 export default function Landing() {
 	return (
-		<section class="w-full h-[75vh] relative">
+		<section class="w-full h-screen relative">
 			<Nav />
 			<header class="w-full h-full flex flex-col justify-center">
 				<div class="ml-[50vw] text-3xl">
@@ -19,3 +19,4 @@ export default function Landing() {
 		</section>
 	)
 }
+

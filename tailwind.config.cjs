@@ -16,6 +16,11 @@ export default {
 			fontFamily: {
 				'sans': ['"poppins"', ...defaultTheme.fontFamily.sans],
 			},
+			spacing: {
+				"112": "28rem",
+				"120": "30rem",
+				"128": "32rem",
+			},
 			colors: {
 				white: "#DFCEED",
 				border: "hsl(var(--border))",
@@ -28,8 +33,9 @@ export default {
 					foreground: "#DFCEED"
 				},
 				secondary: {
-					DEFAULT: "hsl(var(--secondary))",
-					foreground: "hsl(var(--secondary-foreground))"
+					DEFAULT: "#C493EE",
+					foreground: "hsl(var(--secondary-foreground))",
+					background: "#17131C",
 				},
 				destructive: {
 					DEFAULT: "hsl(var(--destructive))",
