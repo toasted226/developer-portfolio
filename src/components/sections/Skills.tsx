@@ -4,7 +4,6 @@ import { client } from "~/lib/trpc";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Project, Skill } from "~/cms/cms";
 import ArrowTopRight from "../icons/ArrowTopRight";
-import { updatePath } from "solid-js/store/types/store.js";
 
 const getProjects = query(async () => {
 	"use server";
@@ -22,14 +21,14 @@ export const route = {
 	preload: [() => getProjects(), () => getSkills()],
 }
 
-export default function Skills() {
+export default function Skills(props: {class?: string}) {
 	const projects = createAsync(() => getProjects());
 	const skills = createAsync(() => getSkills());
 
 	const [selectedSkill, setSelectedSkill] = createSignal<Skill>("Rust");
 
 	return (
-		<div class="bg-secondary-background pb-16">
+		<div class={`bg-secondary-background pb-16 ${props.class}`}>
 			<section class="bg-secondary-background container px-10">
 				<h1 class="text-center text-2xl py-16">skills</h1>
 				<div class="flex h-[348px]">
