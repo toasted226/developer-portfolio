@@ -7,7 +7,7 @@ export default function Landing() {
 	const [offset, setOffset] = createSignal(0);
 
 	const scrollStyle = (): JSX.CSSProperties => {
-		return {transform: `scale(${1 + 2 * offset() / window.innerHeight}) rotateX(${90 * 2 * offset() / window.innerHeight}deg)`, "transform-origin": "center", opacity: `${1 - offset() * 3 / window.innerHeight}`, filter: `blur(${8 * offset() / window.innerHeight}px)`};
+		return {transform: `scale(${1 - 2 * offset() / window.innerHeight})`, "transform-origin": "center", opacity: `${1 - offset() * 3 / window.innerHeight}`};
 	}
 
 	document.addEventListener("scroll", () => {
