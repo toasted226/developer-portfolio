@@ -12,7 +12,7 @@ const degToRad = (deg: number) => {
 	return deg * (Math.PI / 180)
 }
 
-export default function About(props: {class?: string}) {
+export default function About(props: { class?: string }) {
 	return (
 		<div class={`pb-16 ${props.class}`}>
 			<section class="container px-10">
@@ -23,7 +23,7 @@ export default function About(props: {class?: string}) {
 					</div>
 					<div class="relative">
 						<Hobby svg={Translate} name="Languages" id={0} />
-						<Hobby svg={Music} name="Music" id={1}/>
+						<Hobby svg={Music} name="Music" id={1} />
 						<Hobby svg={CommandLine} name="Programming" id={2} />
 						<Hobby svg={Keyboard} size="w-6" name="Keyboards" id={3} />
 					</div>
@@ -38,11 +38,11 @@ interface Position {
 	y: number,
 }
 
-const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, name: string, id: number}> = (props) => {
+const Hobby: Component<{ svg: Component<ComponentProps<"svg">>, size?: string, name: string, id: number }> = (props) => {
 	const { svg: Icon } = props;
-	const [mousePos, setMousePos] = createSignal<Position>({x: 0, y: 0});
-	const [pos, setPos] = createSignal<Position>({x: 0, y: 0});
-	const [origin, setOrigin] = createSignal<Position>({x: 0, y: 0});
+	const [mousePos, setMousePos] = createSignal<Position>({ x: 0, y: 0 });
+	const [pos, setPos] = createSignal<Position>({ x: 0, y: 0 });
+	const [origin, setOrigin] = createSignal<Position>({ x: 0, y: 0 });
 	const [hasOrigin, setHasOrigin] = createSignal(false);
 	let containerRef: HTMLDivElement;
 
@@ -52,7 +52,7 @@ const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, na
 
 	onMount(() => {
 		const handleMouseMove = (e: MouseEvent) => {
-			setMousePos({x: e.x, y: e.y});
+			setMousePos({ x: e.x, y: e.y });
 		}
 
 		document.addEventListener("mousemove", handleMouseMove);
@@ -62,42 +62,15 @@ const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, na
 	createEffect(() => {
 		if (!containerRef) return;
 
-		const rect = containerRef.getBoundingClientRect();
-		const containerOffset = { x: rect.left - rect.width / 2, y: rect.top - rect.height / 2 };
-
 		const deg = 360 / HOBBIES_LENGTH * props.id;
 		let x = RADIUS * radToDeg(Math.cos(degToRad(deg)));
 		let y = RADIUS * radToDeg(Math.sin(degToRad(deg)));
 
-		if (!hasOrigin()) {
-			setOrigin({x: x, y: y});
-			console.log(`DIV-${props.id} x: ${origin().x} y: ${origin().y}`);
-			setHasOrigin(true);
-		}
-
-		const localMousePos = {
-			x: mousePos().x - containerOffset.x,
-			y: mousePos().y - containerOffset.y,
-		};
-
-		const direction: Position = {x: origin().x - localMousePos.x, y: origin().y - localMousePos.y};
-		const distance = Math.sqrt(direction.x ** 2 + direction.y ** 2);
-
-		const limitedDistance = Math.min(distance, MAX_DISTANCE);
-
-		const normalised: Position = {
-			x: (direction.x / distance) * limitedDistance, 
-			y: (direction.y / distance) * limitedDistance
-		};
-
-		x -= normalised.x;
-		y -= normalised.y;
-
-		setPos({x, y});
+		setPos({ x, y });
 	});
 
 	return (
-		<div ref={(el) => (containerRef = el)} 
+		<div ref={(el) => (containerRef = el)}
 			class={`flex flex-col items-center gap-2 w-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`}
 			style={`transform: translate(${pos().x}px, ${pos().y}px)`}>
 			<div class="h-14 w-14 border-white border-2 border-solid rounded-full flex justify-center items-center">

@@ -23,6 +23,12 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.621
         version: 11.0.0-rc.621
+      '@types/animejs':
+        specifier: ^3.1.12
+        version: 3.1.12
+      animejs:
+        specifier: ^3.2.2
+        version: 3.2.2
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.20(postcss@8.4.47)
@@ -1019,6 +1025,9 @@ packages:
   '@trpc/server@11.0.0-rc.621':
     resolution: {integrity: sha512-hSXWXDX6m7dptKZfALlOhpvC6SLI0TwAos2la9M3U3rJ+wozbRdOG/2hlfaEw4muODRAYu+HVkP0b9iyWZuPqA==}
 
+  '@types/animejs@3.1.12':
+    resolution: {integrity: sha512-fpdH+ZtlO0kqjTOqRaBdsEmvpRNOayI8k4EVkEtitL5l6wducDOXk0rgQgfZqWf/ZX9DzXrHf257S5i9xTcISQ==}
+
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
 
@@ -1111,6 +1120,9 @@ packages:
   agent-base@7.1.1:
     resolution: {integrity: sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==}
     engines: {node: '>= 14'}
+
+  animejs@3.2.2:
+    resolution: {integrity: sha512-Ao95qWLpDPXXM+WrmwcKbl6uNlC5tjnowlaRYtuVDHHoygjtIPfDUoK9NthrlZsQSKjZXlmji2TrBUAVbiH0LQ==}
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -3648,6 +3660,8 @@ snapshots:
 
   '@trpc/server@11.0.0-rc.621': {}
 
+  '@types/animejs@3.1.12': {}
+
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.26.2
@@ -3797,6 +3811,8 @@ snapshots:
       debug: 4.3.7(supports-color@9.4.0)
     transitivePeerDependencies:
       - supports-color
+
+  animejs@3.2.2: {}
 
   ansi-align@3.0.1:
     dependencies:
