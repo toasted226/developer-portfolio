@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createSignal, For, onMount } from "solid-js";
 import Nav from "../Nav";
 import anime from 'animejs/lib/anime.es.js';
@@ -29,6 +30,11 @@ export default function Landing() {
 			setIsAnimating(false);
 		}
 	};
+=======
+import Nav from "../Nav";
+
+export default function Landing() {
+>>>>>>> 3628afa (removed hover effect)
 
 	return (
 		<div>
@@ -39,12 +45,16 @@ export default function Landing() {
 						<h1 class="mb-4">I'm Keagan</h1>
 						<h1 class="italic flex items-center">
 							Less Talk,
+<<<<<<< HEAD
 							<span class="flex flex-col">
 								<span class="text-primary mx-2 cursor-pointer" onMouseEnter={() => bounceLetters()}>
 									{highlight}
 								</span>
 								<div class="h-1 w-[95%] mx-auto bg-primary"></div>
 							</span>
+=======
+							<span class="text-primary mx-2 cursor-pointer underline">More Tech!</span>
+>>>>>>> 3628afa (removed hover effect)
 						</h1>
 					</div>
 					<div class="relative top-40 scale-125 h-7 w-4 rounded-full border-primary border-2 ml-1 flex justify-center py-2">
