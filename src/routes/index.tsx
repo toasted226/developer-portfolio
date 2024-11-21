@@ -1,4 +1,5 @@
 import { clientOnly } from "@solidjs/start";
+import Footer from "~/components/sections/Footer";
 import Skills from "~/components/sections/Skills";
 
 const Landing = clientOnly(() => import("~/components/sections/Landing"));
@@ -10,6 +11,7 @@ export default function Home() {
 			<Landing />
 			<Skills class="z-10" />
 			<About class="z-10" />
+			<Footer />
 		</main>
 	)
 }
