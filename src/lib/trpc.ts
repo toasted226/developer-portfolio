@@ -2,5 +2,5 @@ import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import type { AppRouter } from "./router";
 
 export const client = createTRPCClient<AppRouter>({
-	links: [httpBatchLink({ url: "http://localhost:3000/api/trpc" })]
+	links: [httpBatchLink({ url: "https://keagan-dev-portfolio.vercel.app/api/trpc/" })]
 });
