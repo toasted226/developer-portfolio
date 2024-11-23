@@ -1,38 +1,24 @@
-import { createSignal } from "solid-js";
 import Nav from "../Nav";
-import { JSX } from "solid-js/h/jsx-runtime";
-
 
 export default function Landing() {
-	const [offset, setOffset] = createSignal(0);
-
-	const scrollStyle = (): JSX.CSSProperties => {
-		return {transform: `scale(${1 - 2 * offset() / window.innerHeight})`, "transform-origin": "center", opacity: `${1 - offset() * 3 / window.innerHeight}`};
-	}
-
-	document.addEventListener("scroll", () => {
-		setOffset(window.scrollY);
-
-	});
 
 	return (
-		<div class="sticky top-0 -z-10">
+		<div>
 			<section class="w-full h-screen relative">
-				<Nav style={scrollStyle()}/>
-				<header class="w-full h-full flex flex-col justify-center">
-					<div class="ml-[50vw] text-3xl w-fit" style={scrollStyle()}>
+				<Nav />
+				<header class="w-full h-full flex flex-col justify-center items-center">
+					<div class="text-5xl w-fit flex flex-col items-center gap-3">
 						<h1 class="mb-4">I'm Keagan</h1>
 						<h1 class="italic flex items-center">
-							Less Talk, 
-							<span class="text-primary underline mx-2">More Tech.</span>
-							<div class="h-7 w-4 rounded-full border-primary border-2 ml-1 flex justify-center py-2">
-								<div class="h-1 w-1 rounded-full bg-primary animate-bounce"></div>
-							</div>
+							Less Talk,
+							<span class="text-primary mx-2 cursor-pointer underline hover:text-secondary transition-colors">More Tech!</span>
 						</h1>
+					</div>
+					<div class="relative top-40 scale-125 h-7 w-4 rounded-full border-primary border-2 ml-1 flex justify-center py-2 cursor-pointer hover:scale-[140%] transition-transform">
+						<div class="h-1 w-1 rounded-full bg-primary animate-bounce"></div>
 					</div>
 				</header>
 			</section>
 		</div>
 	)
 }
-

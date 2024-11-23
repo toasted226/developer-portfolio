@@ -12,7 +12,7 @@ const degToRad = (deg: number) => {
 	return deg * (Math.PI / 180)
 }
 
-export default function About(props: {class?: string}) {
+export default function About(props: { class?: string }) {
 	let containerRef: HTMLDivElement;
 	const [rect, setRect] = createSignal<DOMRect>();
 
@@ -46,12 +46,12 @@ interface Position {
 	y: number,
 }
 
-const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, name: string, id: number, rect: Accessor<DOMRect | undefined>}> = (props) => {
+const Hobby: Component<{ svg: Component<ComponentProps<"svg">>, size?: string, name: string, id: number, rect: Accessor<DOMRect | undefined> }> = (props) => {
 	const { svg: Icon } = props;
-	const [mousePos, setMousePos] = createSignal<Position>({x: 0, y: 0});
-	const [localMousePos, setLocalMousePos] = createSignal<Position>({x: 0, y: 0});
-	const [pos, setPos] = createSignal<Position>({x: 0, y: 0});
-	const [origin, setOrigin] = createSignal<Position>({x: 0, y: 0});
+	const [mousePos, setMousePos] = createSignal<Position>({ x: 0, y: 0 });
+	const [localMousePos, setLocalMousePos] = createSignal<Position>({ x: 0, y: 0 });
+	const [pos, setPos] = createSignal<Position>({ x: 0, y: 0 });
+	const [origin, setOrigin] = createSignal<Position>({ x: 0, y: 0 });
 	const [hasOrigin, setHasOrigin] = createSignal(false);
 
 	const MAX_DISTANCE = 10;
@@ -60,7 +60,7 @@ const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, na
 
 	onMount(() => {
 		const handleMouseMove = (e: MouseEvent) => {
-			setMousePos({x: e.x, y: e.y});
+			setMousePos({ x: e.x, y: e.y });
 		}
 
 		document.addEventListener("mousemove", handleMouseMove);
@@ -76,41 +76,41 @@ const Hobby: Component<{svg: Component<ComponentProps<"svg">>, size?: string, na
 		let y = RADIUS * radToDeg(Math.sin(degToRad(deg)));
 
 		if (!hasOrigin()) {
-			setOrigin({x: x + 14, y: y + 14});
+			setOrigin({ x: x + 14, y: y + 14 });
 			setHasOrigin(true);
 		}
 
 		const localMousePos = {
-			x: mousePos().x - containerOffset.x - rect.width, 
+			x: mousePos().x - containerOffset.x - rect.width,
 			y: mousePos().y - containerOffset.y - 80,
 		};
 		setLocalMousePos(localMousePos);
 
-		const direction: Position = {x: localMousePos.x - origin().x, y: localMousePos.y - origin().y};
+		const direction: Position = { x: localMousePos.x - origin().x, y: localMousePos.y - origin().y };
 		const distance = Math.sqrt(direction.x ** 2 + direction.y ** 2);
 
 		const limitedDistance = Math.min(distance, MAX_DISTANCE);
 
 		const normalised: Position = {
-			x: (direction.x / distance) * limitedDistance, 
+			x: (direction.x / distance) * limitedDistance,
 			y: (direction.y / distance) * limitedDistance
 		};
 
 		x -= normalised.x;
 		y -= normalised.y;
 
-		setPos({x, y});
+		setPos({ x, y });
 	});
 
 	return (
 		<>
-		<div class={`flex flex-col items-center gap-2 w-fit absolute top-1/2 left-1/2`}
-			style={`transform: translate(${pos().x}px, ${pos().y}px);`}>
-			<div class="h-14 w-14 border-white border-2 border-solid rounded-full flex justify-center items-center hover:scale-110 transition-all duration-150">
-				<Icon class={props.size} />
+			<div class={`flex flex-col items-center gap-2 w-fit absolute top-1/2 left-1/2`}
+				style={`transform: translate(${pos().x}px, ${pos().y}px);`}>
+				<div class="h-14 w-14 border-white border-2 border-solid rounded-full flex justify-center items-center hover:scale-110 transition-all duration-150">
+					<Icon class={props.size} />
+				</div>
+				<p class="text-sm">{props.name}</p>
 			</div>
-			<p class="text-sm">{props.name}</p>
-		</div>
 		</>
 	);
 }
