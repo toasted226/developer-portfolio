@@ -1,18 +1,23 @@
-import { clientOnly } from "@solidjs/start";
 import Footer from "~/components/sections/Footer";
+import Landing from "~/components/sections/Landing";
 import Skills from "~/components/sections/Skills";
-
-const Landing = clientOnly(() => import("~/components/sections/Landing"));
-const About = clientOnly(() => import("~/components/sections/About"));
+import About from "~/components/sections/About";
+import { Meta, MetaProvider, Title } from "@solidjs/meta";
 
 export default function Home() {
 	return (
-		<main class="text-white" >
+		<>
+		<MetaProvider>
+			<Meta name="description" content="Developer portfolio of Keagan Collins" />
+			<Title>Keagan's Portfolio</Title>
+		</MetaProvider>
+		<main class="text-white scroll-smooth">
 			<Landing />
 			<Skills class="z-10" />
 			<About class="z-10" />
 			<Footer />
 		</main>
+		</>
 	)
 }
 

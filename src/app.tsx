@@ -7,9 +7,9 @@ export default function App() {
 	return (
 		<Router
 			root={props => (
-				<>
+				<div class="scroll-smooth">
 					<Suspense>{props.children}</Suspense>
-				</>
+				</div>
 			)}
 		>
 			<FileRoutes />

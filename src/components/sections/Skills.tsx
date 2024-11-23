@@ -4,6 +4,7 @@ import { client } from "~/lib/trpc";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Project, Skill } from "~/cms/cms";
 import ArrowTopRight from "../icons/ArrowTopRight";
+import Github from "../icons/Github";
 
 const getProjects = query(async () => {
 	"use server";
@@ -28,25 +29,25 @@ export default function Skills(props: {class?: string}) {
 	const [selectedSkill, setSelectedSkill] = createSignal<Skill>("Rust");
 
 	return (
-		<div class={`bg-secondary-background pb-16 ${props.class}`}>
+		<div class={`bg-secondary-background pb-16 ${props.class}`} id="skills">
 			<section class="bg-secondary-background container px-10">
-				<h1 class="text-center text-2xl py-16">skills</h1>
-				<div class="flex h-[348px]">
-					<div class="min-w-44 grow-0 text-lg flex flex-col gap-5 py-5 border-r-[1px] border-r-white h-full">
+				<h1 class="text-center text-2xl lg:py-16 max-lg:pt-16 max-lg:pb-7">skills</h1>
+				<div class="flex max-lg:flex-col lg:min-h-[348px] h-fit">
+					<div class="min-w-44 grow-0 text-lg max-lg:h-fit flex lg:flex-col gap-5 py-5 lg:border-r-[1px] lg:border-r-white h-full max-lg:justify-center">
 						<For each={skills()}>
 							{(skill) => {
 								return (
-									<>
-									<button 
-										class={`text-left hover:text-secondary hover:font-semibold transition-all 
-											${skill === selectedSkill() ? 'text-secondary font-semibold' : ''}`} 
-										onClick={() => {
-											setSelectedSkill(skill)
-										}}>
-										{skill}
-									</button>
-									<div class={`-mt-5 -ml-1 bg-secondary h-0.5 ${skill === selectedSkill() ? 'w-14' : 'w-0'} transition-all`}></div>
-									</>
+									<div class="flex flex-col gap-1">
+										<button 
+											class={`text-left hover:text-secondary hover:font-semibold transition-all 
+												${skill === selectedSkill() ? 'text-secondary font-semibold' : ''}`} 
+											onClick={() => {
+												setSelectedSkill(skill)
+											}}>
+											{skill}
+										</button>
+										<div class={`max-lg:hidden -ml-1 bg-secondary h-0.5 ${skill === selectedSkill() ? 'w-14' : 'w-0'} transition-all`}></div>
+									</div>
 								)
 							}}
 						</For>
@@ -67,18 +68,24 @@ const Cards: Component<{ projects: Accessor<Project[] | undefined>, selectedSkil
 	});
 
 	return (
-		<div class={`flex flex-wrap grow gap-5 py-5 px-10 w-full`}>
+		<div class={`flex flex-wrap max-lg:justify-center lg:grow gap-5 py-5 px-10 w-full`}>
 			<For each={sorted()}>
 				{(project) => {
 					return (
-						<Card class={`rounded-none bg-background text-white border-l-secondary border-l-4 border-solid border-y-0 border-r-0 w-120 h-36 flex flex-col justify-between p-6`}>
-							<CardHeader class="flex-row justify-between items-baseline p-0">
+						<Card class={`rounded-none bg-background text-white border-l-secondary border-l-4 border-solid border-y-0 border-r-0 w-120 md:h-36 h-fit flex flex-col justify-between p-6`}>
+							<CardHeader class="md:flex-row max-md:flex-col justify-between items-baseline p-0">
 								<CardTitle>{project.name}</CardTitle>
 								<CardTags tags={project.tags} />
 							</CardHeader>
-							<CardContent class="text-sm flex justify-between items-center border-solid border-b-2 border-b-white px-0 py-2">
-								<a class="w-96">{project.desc}</a>
-								<ArrowTopRight class="h-5" />
+							<a href={project.url} target="_blank">
+								<CardContent class="max-md:hidden text-sm flex justify-between items-center border-solid border-b-2 border-b-white px-0 py-2">
+									<a class="w-96">{project.desc}</a>
+									<ArrowTopRight class="h-5" />
+								</CardContent>
+							</a>
+							<CardContent class="md:hidden text-sm flex flex-col px-0 py-2 gap-2">
+								<a class="">{project.desc}</a>
+								<Github class="h-5 w-fit" />
 							</CardContent>
 						</Card>
 					)

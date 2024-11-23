@@ -6,9 +6,15 @@ export default function Footer() {
 	return (
 		<div class="w-full h-36 bg-secondary-background flex items-center justify-center">
 			<div class="h-8 flex justify-center items-center gap-16">
-				<Github class="h-full hover:scale-110 transition-transform cursor-pointer" />
-				<Linkedin class="h-full hover:scale-110 transition-transform cursor-pointer" />
-				<Email class="h-full hover:scale-110 transition-transform cursor-pointer" />
+				<a class="h-full" href="https://github.com/toasted226" target="_blank">
+					<Github class="h-full hover:scale-110 transition-transform cursor-pointer" />
+				</a>
+				<a class="h-full" href="https://www.linkedin.com/in/keagan-collins-937140213/" target="_blank">
+					<Linkedin class="h-full hover:scale-110 transition-transform cursor-pointer" />
+				</a>
+				<a class="h-full" href="mailto:keaganncollins@gmail.com" target="_blank">
+					<Email class="h-full hover:scale-110 transition-transform cursor-pointer" />
+				</a>
 			</div>
 		</div>
 	);
