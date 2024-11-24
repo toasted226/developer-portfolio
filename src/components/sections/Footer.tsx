@@ -9,9 +9,6 @@ export default function Footer() {
 				<a class="h-full" href="https://github.com/toasted226" target="_blank">
 					<Github class="h-full hover:scale-110 transition-transform cursor-pointer" />
 				</a>
-				<a class="h-full" href="https://www.linkedin.com/in/keagan-collins-937140213/" target="_blank">
-					<Linkedin class="h-full hover:scale-110 transition-transform cursor-pointer" />
-				</a>
 				<a class="h-full" href="mailto:keaganncollins@gmail.com" target="_blank">
 					<Email class="h-full hover:scale-110 transition-transform cursor-pointer" />
 				</a>
