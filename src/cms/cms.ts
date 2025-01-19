@@ -18,7 +18,7 @@ export const projects: Project[] = [
 		name: "Conlang Dictionary",
 		desc: "A Constructed Language Dictionary built for my friends.",
 		url: "https://github.com/toasted226/conlang-dictionary",
-		tags: ["TS", "JS", "Go"]
+		tags: ["TS", "JS", "Go", "Angular"]
 	},
 	{
 		name: "One-Handed Keyboard",
@@ -37,6 +37,12 @@ export const projects: Project[] = [
 		desc: "Game built in 7 days for Brackey's Game Jam 2021.",
 		url: "https://github.com/toasted226/brackeys--gamejam-2021.2",
 		tags: ["C#"]
+	},
+	{
+		name: "Developer Portfolio",
+		desc: "You're looking at it!",
+		url: "https://github.com/toasted226/developer-portfolio",
+		tags: ["TS", "JS", "Solid"]
 	}
 ];
 
