@@ -24,7 +24,7 @@ export const projects: Project[] = [
 		name: "One-Handed Keyboard",
 		desc: "Small notepad allowing users to touch-type with one hand.",
 		url: "https://github.com/toasted226/onehandkeyboard",
-		tags: ["Rust", "TS", "JS"]
+		tags: ["Rust", "TS", "JS", "React"]
 	},
 	{
 		name: "Downloads Sorter",
