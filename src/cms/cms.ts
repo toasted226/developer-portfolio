@@ -27,6 +27,12 @@ export const projects: Project[] = [
 		tags: ["Rust", "TS", "JS"]
 	},
 	{
+		name: "Downloads Sorter",
+		desc: "Tiny automation program to organise your downloads folder.",
+		url: "https://github.com/toasted226/downloads-sorter",
+		tags: ["Rust"]
+	},
+	{
 		name: "Office Chaos",
 		desc: "Game built in 7 days for Brackey's Game Jam 2021.",
 		url: "https://github.com/toasted226/brackeys--gamejam-2021.2",
