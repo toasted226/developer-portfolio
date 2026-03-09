@@ -12,7 +12,7 @@ export const projects: Project[] = [
     name: "Source Backend",
     desc: "Clojure-written backend for the Source platform.",
     url: "https://github.com/modulr-software/source-be",
-    tags: ["Clojure"]
+    tags: ["Clojure", "PostgreSQL", "SQLite"]
   },
   {
     name: "Colourful Assembly Language",
